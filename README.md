@@ -9,30 +9,25 @@ The cluster is configured to use the `single-user` provider and authorizer. The 
 
 A `nginx` service is also part of the deployment to distribute connections to both NiFi nodes. To connect to the cluster, point your browser to `https://localhost:8443/nifi`.
 
-== Starting the cluster
+The temp directory in this repository is bound to the container. You can write output here for testing flows and easy inspection of the final results.
+
+## Starting the cluster
 
 Execute the following command on this directory:
 
-[source,shell]
-----
-docker compose up -d
-----
+`docker compose up -d`
 
-== Stopping the cluster
+## Stopping the cluster
 
 Execute the following command on this directory:
 
-[source,shell]
-----
-docker compose down
-----
+`docker compose down`
 
-== Resetting the cluster content
+
+## Resetting the cluster content
 
 If you want to clear/discard the content of your NiFi cluster so that you can start a fresh one, execute the following commands on this directory:
 
-[source,shell]
-----
-docker compose down
-docker volume rm $(docker volume ls -q --filter "name=nifi-docker-compose")
-----
+`docker compose down`
+`docker volume rm $(docker volume ls -q --filter "name=nifi-docker-compose"`
+
